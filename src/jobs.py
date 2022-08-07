@@ -1,18 +1,8 @@
 from functools import lru_cache
-
+import csv
 
 @lru_cache
 def read(path):
-    """Reads a file from a given path and returns its contents
-    Comecando o projeto
-    Parameters
-    ----------
-    path : str
-        Full path to file
-
-    Returns
-    -------
-    list
-        List of rows as dicts
-    """
-    return []
+    with open(path, 'r') as file:
+        file_data = csv.DictReader(file)
+        return [row for row in file_data]
