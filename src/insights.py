@@ -23,6 +23,7 @@ def get_unique_industries(path):
 
 
 def filter_by_industry(jobs, industry):
+    return [job for job in jobs if job["industry"] == industry]
     """Filters a list of jobs by industry
 
     Parameters
