@@ -56,22 +56,24 @@ def filter_by_industry(jobs, industry):
 def get_max_salary(path):
     jobs_list = read(path)
     salaries = set()
+    errors = set()
     for job in jobs_list:
         try:
             salaries.add(int(job["max_salary"]))
         except ValueError:
-            error = "NaN"
+            errors.add(job["max_salary"])
     return max(salaries)
 
 
 def get_min_salary(path):
     jobs_list = read(path)
     salaries = set()
+    errors = set()
     for job in jobs_list:
         try:
             salaries.add(int(job["min_salary"]))
         except ValueError:
-           error = "NaN"
+            errors.add(job["max_salary"])
     return min(salaries)
     """Get the minimum salary of all jobs
 
